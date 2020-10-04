@@ -2,9 +2,9 @@
   "paragraphs": [
     {
       "title": "Load Libraries",
-      "text": "import pandas as pd\nimport numpy as np\nimport matplotlib.pyplot as plt\nimport seaborn as sns\nimport plotly\nimport plotly.graph_objs as go\nimport boto3\nimport datetime\nfrom datetime import datetime\nimport time\nimport pyspark.sql.functions as f",
-      "user": "yoavsal@gmail.com",
-      "dateUpdated": "Sep 30, 2020 12:28:48 PM",
+      "text": "import plotly\nimport plotly.graph_objs as go",
+      "user": "yoav.salarios@harman.com",
+      "dateUpdated": "Oct 4, 2020 10:05:18 AM",
       "config": {
         "colWidth": 12.0,
         "graph": {
@@ -26,27 +26,21 @@
         },
         "forms": {}
       },
-      "paragraphProgress": {
-        "jobs": [],
-        "numCompletedTasks": 0,
-        "numTasks": 0,
-        "truncated": false
-      },
       "version": "v1",
       "jobName": "paragraph_1599662902955_575898477",
       "id": "20200909-144822_1583651619_q_NFXV8WWJ5T1601379489",
       "dateCreated": "Sep 9, 2020 2:43:48 PM",
-      "dateSubmitted": "Sep 30, 2020 12:28:48 PM",
-      "dateStarted": "Sep 30, 2020 12:28:48 PM",
-      "dateFinished": "Sep 30, 2020 12:28:48 PM",
+      "dateSubmitted": "Oct 4, 2020 10:05:18 AM",
+      "dateStarted": "Oct 4, 2020 10:05:18 AM",
+      "dateFinished": "Oct 4, 2020 10:05:18 AM",
       "status": "FINISHED",
       "errorMessage": "",
       "progressUpdateIntervalMs": 1000
     },
     {
-      "text": "\u0027\u0027\u0027\nRead input parameters\n\u0027\u0027\u0027\nthresh \u003d z.input(\"outlier_level\") # general or strict\nbucket \u003d z.input(\"bucket_name\") # qubole-innovation-dev\nbattery_data_table \u003d z.input(\"battery_data_table\") # battery-prognosis/carBatteryVoltage_sample_8_18.csv\n",
-      "user": "yoavsal@gmail.com",
-      "dateUpdated": "Sep 30, 2020 12:46:40 PM",
+      "text": "\u0027\u0027\u0027\nRead input parameters\n\u0027\u0027\u0027\nthresh \u003d z.input(\"outlier_level\") # general or strict\nbattery_data_table \u003d z.input(\"battery_data_table\") # Location of table in delta lake format\n\nif (thresh \u003d\u003d \"general\"):\n    threshold\u003d1.5\nelif (thresh \u003d\u003d \"strict\"):\n    threshold \u003d 3.0\nelse:\n    threshold \u003d 1.5\n",
+      "user": "yoav.salarios@harman.com",
+      "dateUpdated": "Oct 4, 2020 10:05:20 AM",
       "config": {
         "colWidth": 12.0,
         "graph": {
@@ -76,13 +70,6 @@
             "defaultValue": "",
             "hidden": false
           },
-          "bucket_name": {
-            "name": "bucket_name",
-            "displayName": "bucket_name",
-            "type": "input",
-            "defaultValue": "",
-            "hidden": false
-          },
           "battery_data_table": {
             "name": "battery_data_table",
             "displayName": "battery_data_table",
@@ -96,17 +83,17 @@
       "jobName": "paragraph_1601441175978_-526315662",
       "id": "20200930-044615_1632491615_q_NFXV8WWJ5T1601379489",
       "dateCreated": "Sep 30, 2020 4:46:15 AM",
-      "dateSubmitted": "Sep 30, 2020 12:46:40 PM",
-      "dateStarted": "Sep 30, 2020 12:46:40 PM",
-      "dateFinished": "Sep 30, 2020 12:46:40 PM",
+      "dateSubmitted": "Oct 4, 2020 10:05:20 AM",
+      "dateStarted": "Oct 4, 2020 10:05:20 AM",
+      "dateFinished": "Oct 4, 2020 10:05:20 AM",
       "status": "FINISHED",
       "errorMessage": "",
       "progressUpdateIntervalMs": 1000
     },
     {
-      "text": "if (thresh \u003d\u003d \"general\"):\n    threshold\u003d1.5\nelif (thresh \u003d\u003d \"strict\"):\n    threshold \u003d 3.0\nelse:\n    threshold \u003d 1.5\n\ntry:\n    df \u003d spark.read.format(\"delta\").load(battery_data_table).toPandas()\nexcept:\n    print(\"Failed loading table\")\n",
-      "user": "yoavsal@gmail.com",
-      "dateUpdated": "Sep 30, 2020 1:03:48 PM",
+      "text": "\ntry:\n    df \u003d spark.read.format(\"delta\").load(battery_data_table).toPandas()\nexcept:\n    print(\"Failed loading table\")\n",
+      "user": "yoav.salarios@harman.com",
+      "dateUpdated": "Oct 4, 2020 10:05:24 AM",
       "config": {
         "colWidth": 12.0,
         "graph": {
@@ -131,36 +118,36 @@
       "paragraphProgress": {
         "jobs": [
           {
-            "id": 8,
-            "jobUrl": "https://us.qubole.com/cluster-proxy?encodedUrl\u003dhttp%3A%2F%2F10.158.225.34%3A8088%2Fproxy%2Fapplication_1601466643076_0001/jobs/job?spark\u003dtrue\u0026id\u003d8",
-            "numTasks": 101,
+            "id": 30,
+            "jobUrl": "https://us.qubole.com/cluster-proxy?encodedUrl\u003dhttp%3A%2F%2F10.158.225.61%3A8088%2Fproxy%2Fapplication_1601798719164_0001/jobs/job?spark\u003dtrue\u0026id\u003d30",
+            "numTasks": 102,
             "numCompletedTasks": 50,
             "stages": [
               {
-                "id": 19,
+                "id": 63,
                 "completed": true,
                 "status": "Skipped",
-                "stageUrl": "https://us.qubole.com/cluster-proxy?encodedUrl\u003dhttp%3A%2F%2F10.158.225.34%3A8088%2Fproxy%2Fapplication_1601466643076_0001/stages/stage/?id\u003d19\u0026attempt\u003d0",
+                "stageUrl": "https://us.qubole.com/cluster-proxy?encodedUrl\u003dhttp%3A%2F%2F10.158.225.61%3A8088%2Fproxy%2Fapplication_1601798719164_0001/stages/stage/?id\u003d63\u0026attempt\u003d0",
                 "numCompleteTasks": 0,
                 "numActiveTasks": 0,
                 "numFailedTasks": 0,
                 "numTotalTasks": 0
               },
               {
-                "id": 20,
+                "id": 64,
                 "completed": false,
                 "status": "Skipped",
-                "stageUrl": "https://us.qubole.com/cluster-proxy?encodedUrl\u003dhttp%3A%2F%2F10.158.225.34%3A8088%2Fproxy%2Fapplication_1601466643076_0001/stages/stage/?id\u003d20\u0026attempt\u003d0",
+                "stageUrl": "https://us.qubole.com/cluster-proxy?encodedUrl\u003dhttp%3A%2F%2F10.158.225.61%3A8088%2Fproxy%2Fapplication_1601798719164_0001/stages/stage/?id\u003d64\u0026attempt\u003d0",
                 "numCompleteTasks": 0,
                 "numActiveTasks": 0,
                 "numFailedTasks": 0,
-                "numTotalTasks": 51
+                "numTotalTasks": 52
               },
               {
-                "id": 21,
+                "id": 65,
                 "completed": true,
                 "status": "Completed",
-                "stageUrl": "https://us.qubole.com/cluster-proxy?encodedUrl\u003dhttp%3A%2F%2F10.158.225.34%3A8088%2Fproxy%2Fapplication_1601466643076_0001/stages/stage/?id\u003d21\u0026attempt\u003d0",
+                "stageUrl": "https://us.qubole.com/cluster-proxy?encodedUrl\u003dhttp%3A%2F%2F10.158.225.61%3A8088%2Fproxy%2Fapplication_1601798719164_0001/stages/stage/?id\u003d65\u0026attempt\u003d0",
                 "numCompleteTasks": 50,
                 "numActiveTasks": 0,
                 "numFailedTasks": 0,
@@ -170,44 +157,44 @@
             "status": "Success"
           },
           {
-            "id": 9,
-            "jobUrl": "https://us.qubole.com/cluster-proxy?encodedUrl\u003dhttp%3A%2F%2F10.158.225.34%3A8088%2Fproxy%2Fapplication_1601466643076_0001/jobs/job?spark\u003dtrue\u0026id\u003d9",
-            "numTasks": 2,
-            "numCompletedTasks": 2,
+            "id": 31,
+            "jobUrl": "https://us.qubole.com/cluster-proxy?encodedUrl\u003dhttp%3A%2F%2F10.158.225.61%3A8088%2Fproxy%2Fapplication_1601798719164_0001/jobs/job?spark\u003dtrue\u0026id\u003d31",
+            "numTasks": 7,
+            "numCompletedTasks": 7,
             "stages": [
               {
-                "id": 22,
+                "id": 66,
                 "completed": true,
                 "status": "Completed",
-                "stageUrl": "https://us.qubole.com/cluster-proxy?encodedUrl\u003dhttp%3A%2F%2F10.158.225.34%3A8088%2Fproxy%2Fapplication_1601466643076_0001/stages/stage/?id\u003d22\u0026attempt\u003d0",
-                "numCompleteTasks": 2,
+                "stageUrl": "https://us.qubole.com/cluster-proxy?encodedUrl\u003dhttp%3A%2F%2F10.158.225.61%3A8088%2Fproxy%2Fapplication_1601798719164_0001/stages/stage/?id\u003d66\u0026attempt\u003d0",
+                "numCompleteTasks": 7,
                 "numActiveTasks": 0,
                 "numFailedTasks": 0,
-                "numTotalTasks": 2
+                "numTotalTasks": 7
               }
             ],
             "status": "Success"
           }
         ],
-        "numCompletedTasks": 52,
-        "numTasks": 103,
+        "numCompletedTasks": 57,
+        "numTasks": 109,
         "truncated": false
       },
       "version": "v1",
       "jobName": "paragraph_1601441779518_-862312010",
       "id": "20200930-045619_1553011030_q_NFXV8WWJ5T1601379489",
       "dateCreated": "Sep 30, 2020 4:56:19 AM",
-      "dateSubmitted": "Sep 30, 2020 1:02:06 PM",
-      "dateStarted": "Sep 30, 2020 1:02:06 PM",
-      "dateFinished": "Sep 30, 2020 1:02:10 PM",
+      "dateSubmitted": "Oct 4, 2020 10:05:24 AM",
+      "dateStarted": "Oct 4, 2020 10:05:25 AM",
+      "dateFinished": "Oct 4, 2020 10:05:36 AM",
       "status": "FINISHED",
       "errorMessage": "",
       "progressUpdateIntervalMs": 1000
     },
     {
-      "text": "#threshold \u003d 0.2\n\ntry:\n    \u0027\u0027\u0027\n    Filter by device ID: HULSG5RV815643 / HUBF1LQCD15649\n     \u0026 (df[\u0027deviceId\u0027]\u003d\u003d\"HULSG5RV815643\")\n    \u0027\u0027\u0027\n    df \u003d df[(df[\u0027key\u0027] \u003d\u003d \"CarBatteryVoltage\")]\n    \n    \u0027\u0027\u0027\n    Order by timestamp\n    \u0027\u0027\u0027\n    df \u003d df.sort_values(by\u003d\u0027timestamp\u0027, ascending\u003dTrue)\n\n    \u0027\u0027\u0027\n    Lag timestamp and value\n    \u0027\u0027\u0027\n    df[\u0027timestamp_lagged\u0027] \u003d df[\u0027timestamp\u0027].shift(1)\n\n    df[\u0027value_lagged\u0027] \u003d df[\u0027value\u0027].shift(1)\n\n    \u0027\u0027\u0027\n    Fill in the missing value for timestamp/value lagged and then impute it with the current timestamp/value\n    ---\u003e This will give a slope of 0\n    \u0027\u0027\u0027\n    # df.loc[(df[\u0027timestamp_lagged\u0027].isnull()), \u0027timestamp_lagged\u0027] \u003d df.iloc[0,3]\n    # df.loc[(df[\u0027value_lagged\u0027].isnull()), \u0027value_lagged\u0027] \u003d df.iloc[0,4]\n\n    df \u003d df.loc[df[\u0027value_lagged\u0027].notnull(),list(df.columns)]\n\n    \u0027\u0027\u0027\n    Add PK\n    \u0027\u0027\u0027\n    df[\u0027Record\u0027] \u003d list(range(0,len(df)))\n\n    \u0027\u0027\u0027\n    Convert timestamp_lagged to integer\n    \u0027\u0027\u0027\n    df[\u0027timestamp_lagged\u0027] \u003d df[\u0027timestamp_lagged\u0027].astype(int)\n    \n    \u0027\u0027\u0027\n    Convert value and value_lagged to float\n    \u0027\u0027\u0027\n    df[\u0027value_lagged\u0027] \u003d df[\u0027value_lagged\u0027].astype(float)\n    df[\u0027value\u0027] \u003d df[\u0027value\u0027].astype(float)\n\n    \u0027\u0027\u0027\n    Calculate the slope: (current volatge - previous voltage)  / (current TS - previous TS)\n\n    \u0027\u0027\u0027\n    df[\u0027change_in_voltage\u0027] \u003d df[\u0027value\u0027] - df[\u0027value_lagged\u0027]\n    df[\u0027slope\u0027] \u003d  (df[\u0027value\u0027] - df[\u0027value_lagged\u0027]) / (df[\u0027timestamp\u0027] - df[\u0027timestamp_lagged\u0027])\n\n    \u0027\u0027\u0027\n    Identify and label all point anomalies\n\n    Lower: Q1 - 1.5*IQR\n    Upper: Q3 + 1.5*IQR\n    \u0027\u0027\u0027\n    quartile1 \u003d list(df[\u0027slope\u0027].quantile([0.25,0.75]))[0]\n    quartile3 \u003d list(df[\u0027slope\u0027].quantile([0.25,0.75]))[1]\n    iqr \u003d quartile3 - quartile1\n    \n    lower_bound \u003d quartile1 - (threshold*iqr)\n    upper_bound \u003d quartile3 + (threshold*iqr)\n    \n    lower_anomalies \u003d df[df[\u0027slope\u0027] \u003c lower_bound]\n    upper_anomalies \u003d df[df[\u0027slope\u0027] \u003e upper_bound]\n\n    def outlier_labeler(data):\n        df_copy \u003d df\n        quartile1 \u003d list(df_copy[\u0027slope\u0027].quantile([0.25,0.75]))[0]\n        quartile3 \u003d list(df_copy[\u0027slope\u0027].quantile([0.25,0.75]))[1]\n        iqr \u003d quartile3 - quartile1\n\n        lower_bound \u003d quartile1 - (threshold*iqr)\n        upper_bound \u003d quartile3 + (threshold*iqr)\n\n        lower_anomalies \u003d df[df[\u0027slope\u0027] \u003c lower_bound]\n        upper_anomalies \u003d df[df[\u0027slope\u0027] \u003e upper_bound]\n    \n        output \u003d list()\n    \n        for x in range(0,len(df_copy)):\n            if (df_copy.iloc[x,-1] \u003e upper_bound) | (df_copy.iloc[x,-1] \u003c lower_bound):\n                output.append(1)\n            else:\n                output.append(0)\n        return(output)\n    df[\u0027Box Plot Outlier\u0027] \u003d outlier_labeler(df)\n\n    \u0027\u0027\u0027\n    Separate anomalies and normal points\n    \u0027\u0027\u0027\n    boxplot_anomalies \u003d df[df[\u0027Box Plot Outlier\u0027]\u003d\u003d1]\n\n    normal_data \u003d df[~df[\u0027Record\u0027].isin(list(boxplot_anomalies[\u0027Record\u0027]))]\n\n    \u0027\u0027\u0027\n    Plot voltages\n    \u0027\u0027\u0027\n    boxplot_anomalies[\u0027timestamp\u0027] \u003d [int(str(x)[0:-3]) for x in list(boxplot_anomalies[\u0027timestamp\u0027])]\n    boxplot_anomalies[\u0027datetime\u0027] \u003d [time.strftime(\u0027%Y-%m-%d %H:%M:%S\u0027, time.localtime(y)) for y in list(boxplot_anomalies[\u0027timestamp\u0027])]\n    boxplot_anomalies[\u0027date\u0027] \u003d [x.split(\" \")[0] for x in list(boxplot_anomalies[\u0027datetime\u0027])]\n    boxplot_anomalies[\u0027time\u0027] \u003d [x.split(\" \")[1] for x in list(boxplot_anomalies[\u0027datetime\u0027])]\n\n    normal_data[\u0027timestamp\u0027] \u003d [int(str(x)[0:-3]) for x in list(normal_data[\u0027timestamp\u0027])]\n    normal_data[\u0027datetime\u0027] \u003d [time.strftime(\u0027%Y-%m-%d %H:%M:%S\u0027, time.localtime(y)) for y in list(normal_data[\u0027timestamp\u0027])]\n    normal_data[\u0027date\u0027] \u003d [x.split(\" \")[0] for x in list(normal_data[\u0027datetime\u0027])]\n    normal_data[\u0027time\u0027] \u003d [x.split(\" \")[1] for x in list(normal_data[\u0027datetime\u0027])]\n\n    def plot(plot_dic, height\u003d1000, width\u003d1000, **kwargs):\n        kwargs[\u0027output_type\u0027] \u003d \u0027div\u0027\n        plot_str \u003d plotly.offline.plot(plot_dic, **kwargs)\n        print(\u0027%%angular \u003cdiv style\u003d\"height: %ipx; width: %spx\"\u003e %s \u003c/div\u003e\u0027 % (height, width, plot_str))\n\n    trace1 \u003d go.Scatter(\n        x \u003d normal_data[\u0027datetime\u0027],\n        y \u003d normal_data[\u0027value\u0027],\n        mode \u003d \u0027markers\u0027,\n        name \u003d \u0027Normal Points\u0027\n    )\n\n    trace2 \u003d go.Scatter(\n        x \u003d boxplot_anomalies[\u0027datetime\u0027],\n        y \u003d boxplot_anomalies[\u0027value\u0027],\n        mode \u003d \u0027markers\u0027,\n        name \u003d \u0027Anomalies\u0027\n    )\n\n    layout \u003d dict(\n      title \u003d \u0027Timestamp vs Voltage\u0027,\n      xaxis \u003d dict(title\u003d\u0027Timestamp\u0027),\n      yaxis \u003d dict(title\u003d\u0027Voltage\u0027),\n      showlegend \u003d True,\n      height \u003d 800\n    )\n    data1 \u003d [trace1, trace2]\n    fig1 \u003d dict( data\u003ddata1, layout\u003dlayout )\n    plot(fig1,  show_link\u003dTrue)\n\nexcept:\n    print(\"Please check input and try again\")",
-      "user": "yoavsal@gmail.com",
-      "dateUpdated": "Sep 30, 2020 2:49:35 PM",
+      "text": "\ntry:\n    \u0027\u0027\u0027\n    Filter by device ID: HULSG5RV815643 / HUBF1LQCD15649\n    \u0027\u0027\u0027\n    df \u003d df[(df[\u0027key\u0027] \u003d\u003d \"CarBatteryVoltage\") \u0026 (df[\u0027deviceId\u0027]\u003d\u003d\"HULSG5RV815643\")]\n    \n    \u0027\u0027\u0027\n    Order by timestamp\n    \u0027\u0027\u0027\n    df \u003d df.sort_values(by\u003d\u0027timestamp\u0027, ascending\u003dTrue)\n\n    \u0027\u0027\u0027\n    Select relevant columns\n    \u0027\u0027\u0027\n    df \u003d df[[\u0027timestamp\u0027, \u0027value\u0027]]\n    \n    \u0027\u0027\u0027\n    Lag timestamp and value\n    \u0027\u0027\u0027\n    df[\u0027timestamp_lagged\u0027] \u003d df[\u0027timestamp\u0027].shift(1)\n\n    df[\u0027value_lagged\u0027] \u003d df[\u0027value\u0027].shift(1)\n\n    \u0027\u0027\u0027\n    Drop missing value (first row)\n    \u0027\u0027\u0027\n    df \u003d df.loc[df[\u0027value_lagged\u0027].notnull(),list(df.columns)]\n\n    \u0027\u0027\u0027\n    Add PK\n    \u0027\u0027\u0027\n    df[\u0027Record\u0027] \u003d list(range(0,len(df)))\n\n    \u0027\u0027\u0027\n    Convert timestamp_lagged to integer\n    \u0027\u0027\u0027\n    df[\u0027timestamp_lagged\u0027] \u003d df[\u0027timestamp_lagged\u0027].astype(int)\n    df[\u0027value\u0027] \u003d df[\u0027value\u0027].astype(float)\n    df[\u0027value_lagged\u0027] \u003d df[\u0027value_lagged\u0027].astype(float)\n    \n    \u0027\u0027\u0027\n    Calculate the slope: (current volatge - previous voltage)  / (current TS - previous TS)\n\n    \u0027\u0027\u0027\n    df[\u0027slope\u0027] \u003d  (df[\u0027value\u0027] - df[\u0027value_lagged\u0027]) / (df[\u0027timestamp\u0027] - df[\u0027timestamp_lagged\u0027])\n    df[\u0027change_in_voltage\u0027] \u003d df[\u0027value\u0027] - df[\u0027value_lagged\u0027]\n\n    \u0027\u0027\u0027\n    Identify and label all point anomalies\n\n    Lower: Q1 - 1.5*IQR\n    Upper: Q3 + 1.5*IQR\n    \u0027\u0027\u0027\n\n\n    def outlier_labeler(data,thresh):\n        df_copy \u003d data\n        quartile1 \u003d list(df_copy[\u0027slope\u0027].quantile([0.25,0.75]))[0]\n        quartile3 \u003d list(df_copy[\u0027slope\u0027].quantile([0.25,0.75]))[1]\n        iqr \u003d quartile3 - quartile1\n\n        lower_bound \u003d quartile1 - (thresh*iqr)\n        upper_bound \u003d quartile3 + (thresh*iqr)\n\n        lower_anomalies \u003d df_copy[df_copy[\u0027slope\u0027] \u003c lower_bound]\n        upper_anomalies \u003d df_copy[df_copy[\u0027slope\u0027] \u003e upper_bound]\n    \n        output \u003d list()\n    \n        for x in range(0,len(df_copy)):\n            if (df_copy.iloc[x,-2] \u003e upper_bound) | (df_copy.iloc[x,-2] \u003c lower_bound):\n                output.append(1)\n            else:\n                output.append(0)\n        return(output)\n    \n    df[\u0027Box Plot Outlier\u0027] \u003d outlier_labeler(df,threshold)\n    \n    \u0027\u0027\u0027\n    Separate anomalies and normal points\n    \u0027\u0027\u0027\n    boxplot_anomalies \u003d df[df[\u0027Box Plot Outlier\u0027]\u003d\u003d1]\n\n    normal_data \u003d df[~df[\u0027Record\u0027].isin(list(boxplot_anomalies[\u0027Record\u0027]))]\n\n    \u0027\u0027\u0027\n    Plot voltages\n    \u0027\u0027\u0027\n    boxplot_anomalies[\u0027timestamp\u0027] \u003d [int(str(x)[0:-3]) for x in list(boxplot_anomalies[\u0027timestamp\u0027])]\n    boxplot_anomalies[\u0027datetime\u0027] \u003d [time.strftime(\u0027%Y-%m-%d %H:%M:%S\u0027, time.localtime(y)) for y in list(boxplot_anomalies[\u0027timestamp\u0027])]\n    boxplot_anomalies[\u0027date\u0027] \u003d [x.split(\" \")[0] for x in list(boxplot_anomalies[\u0027datetime\u0027])]\n    boxplot_anomalies[\u0027time\u0027] \u003d [x.split(\" \")[1] for x in list(boxplot_anomalies[\u0027datetime\u0027])]\n\n    normal_data[\u0027timestamp\u0027] \u003d [int(str(x)[0:-3]) for x in list(normal_data[\u0027timestamp\u0027])]\n    normal_data[\u0027datetime\u0027] \u003d [time.strftime(\u0027%Y-%m-%d %H:%M:%S\u0027, time.localtime(y)) for y in list(normal_data[\u0027timestamp\u0027])]\n    normal_data[\u0027date\u0027] \u003d [x.split(\" \")[0] for x in list(normal_data[\u0027datetime\u0027])]\n    normal_data[\u0027time\u0027] \u003d [x.split(\" \")[1] for x in list(normal_data[\u0027datetime\u0027])]\n\n    def plot(plot_dic, height\u003d1000, width\u003d1000, **kwargs):\n        kwargs[\u0027output_type\u0027] \u003d \u0027div\u0027\n        plot_str \u003d plotly.offline.plot(plot_dic, **kwargs)\n        print(\u0027%%angular \u003cdiv style\u003d\"height: %ipx; width: %spx\"\u003e %s \u003c/div\u003e\u0027 % (height, width, plot_str))\n\n    trace1 \u003d go.Scatter(\n        x \u003d normal_data[\u0027datetime\u0027],\n        y \u003d normal_data[\u0027value\u0027],\n        mode \u003d \u0027markers\u0027,\n        name \u003d \u0027Normal Points\u0027\n    )\n\n    trace2 \u003d go.Scatter(\n        x \u003d boxplot_anomalies[\u0027datetime\u0027],\n        y \u003d boxplot_anomalies[\u0027value\u0027],\n        mode \u003d \u0027markers\u0027,\n        name \u003d \u0027Anomalies\u0027\n    )\n\n    layout \u003d dict(\n      title \u003d \u0027Timestamp vs Voltage\u0027,\n      xaxis \u003d dict(title\u003d\u0027Timestamp\u0027),\n      yaxis \u003d dict(title\u003d\u0027Voltage\u0027),\n      showlegend \u003d True,\n      height \u003d 800\n    )\n    data1 \u003d [trace1, trace2]\n    fig1 \u003d dict( data\u003ddata1, layout\u003dlayout )\n    plot(fig1,  show_link\u003dTrue)\n    \n\nexcept:\n    print(\"Please check input and try again\")",
+      "user": "yoav.salarios@harman.com",
+      "dateUpdated": "Oct 4, 2020 10:06:43 AM",
       "config": {
         "colWidth": 12.0,
         "graph": {
@@ -242,159 +229,10 @@
       "jobName": "paragraph_1601393816793_-37383982",
       "id": "20200929-153656_1609471927_q_NFXV8WWJ5T1601379489",
       "dateCreated": "Sep 29, 2020 3:36:56 PM",
-      "dateSubmitted": "Sep 30, 2020 1:59:53 PM",
-      "dateStarted": "Sep 30, 2020 1:59:53 PM",
-      "dateFinished": "Sep 30, 2020 1:59:54 PM",
+      "dateSubmitted": "Oct 4, 2020 10:06:43 AM",
+      "dateStarted": "Oct 4, 2020 10:06:43 AM",
+      "dateFinished": "Oct 4, 2020 10:06:44 AM",
       "status": "FINISHED",
-      "errorMessage": "",
-      "progressUpdateIntervalMs": 1000
-    },
-    {
-      "text": "normal_data",
-      "user": "rohinmahesh1028@gmail.com",
-      "dateUpdated": "Sep 30, 2020 1:59:29 PM",
-      "config": {
-        "colWidth": 12.0,
-        "graph": {
-          "mode": "table",
-          "height": 300.0,
-          "optionOpen": false,
-          "keys": [],
-          "values": [],
-          "groups": [],
-          "scatter": {}
-        },
-        "enabled": true,
-        "editorMode": "ace/mode/python"
-      },
-      "settings": {
-        "params": {
-          "battery_data_table": "s3://qubole-innovation-dev/battery-prognosis/delta/R4/",
-          "outlier_level": "general"
-        },
-        "forms": {}
-      },
-      "version": "v1",
-      "jobName": "paragraph_1601389127902_-2029312163",
-      "id": "20200929-141847_1034756676_q_NFXV8WWJ5T1601379489",
-      "dateCreated": "Sep 29, 2020 2:18:47 PM",
-      "dateSubmitted": "Sep 30, 2020 1:59:29 PM",
-      "dateStarted": "Sep 30, 2020 1:59:29 PM",
-      "dateFinished": "Sep 30, 2020 1:59:29 PM",
-      "status": "FINISHED",
-      "errorMessage": "",
-      "progressUpdateIntervalMs": 1000
-    },
-    {
-      "text": "thresh \u003d z.input(\"outlier_level\") # general or strict\nbucket \u003d z.input(\"bucket_name\") # sprintdev-ignite-qubole-default\nkey \u003d z.input(\"file_name\") # carBatteryVoltage_sample_8_18.csv\n\nif (thresh \u003d\u003d \"general\"):\n    threshold\u003d1.5\nelif (thresh \u003d\u003d \"strict\"):\n    threshold \u003d 3.0\nelse:\n    threshold \u003d 1.5\n\ntry:\n    s3 \u003d boto3.client(\u0027s3\u0027)\n    obj \u003d s3.get_object(Bucket\u003d bucket, Key\u003d key) \n\n    df \u003d pd.read_csv(obj[\u0027Body\u0027])\n\n    \u0027\u0027\u0027\n    Filter by device ID: HU00AMWL594086, HU00DD2CX17773\n    \u0027\u0027\u0027\n    df \u003d df[df[\u0027vehicleId\u0027]\u003d\u003d\"HU00AMWL594086\"]\n\n    \u0027\u0027\u0027\n    Order by timestamp\n    \u0027\u0027\u0027\n    df \u003d df.sort_values(by\u003d\u0027timestamp\u0027, ascending\u003dTrue)\n\n    \u0027\u0027\u0027\n    Lag timestamp and value\n    \u0027\u0027\u0027\n    df[\u0027timestamp_lagged\u0027] \u003d df[\u0027timestamp\u0027].shift(1)\n\n    df[\u0027value_lagged\u0027] \u003d df[\u0027value\u0027].shift(1)\n\n    \u0027\u0027\u0027\n    Fill in the missing value for timestamp/value lagged and then impute it with the current timestamp/value\n    ---\u003e This will give a slope of 0\n    \u0027\u0027\u0027\n    # df.loc[(df[\u0027timestamp_lagged\u0027].isnull()), \u0027timestamp_lagged\u0027] \u003d df.iloc[0,3]\n    # df.loc[(df[\u0027value_lagged\u0027].isnull()), \u0027value_lagged\u0027] \u003d df.iloc[0,4]\n\n    df \u003d df.loc[df[\u0027value_lagged\u0027].notnull(),list(df.columns)]\n\n    \u0027\u0027\u0027\n    Add PK\n    \u0027\u0027\u0027\n    df[\u0027Record\u0027] \u003d list(range(0,len(df)))\n\n    \u0027\u0027\u0027\n    Convert timestamp_lagged to integer\n    \u0027\u0027\u0027\n    df[\u0027timestamp_lagged\u0027] \u003d df[\u0027timestamp_lagged\u0027].astype(int)\n\n    \u0027\u0027\u0027\n    Calculate the slope: (current volatge - previous voltage)  / (current TS - previous TS)\n\n    \u0027\u0027\u0027\n    df[\u0027slope\u0027] \u003d  (df[\u0027value\u0027] - df[\u0027value_lagged\u0027]) / (df[\u0027timestamp\u0027] - df[\u0027timestamp_lagged\u0027])\n    df[\u0027change_in_voltage\u0027] \u003d df[\u0027value\u0027] - df[\u0027value_lagged\u0027]\n\n    \u0027\u0027\u0027\n    Identify and label all point anomalies\n\n    Lower: Q1 - 1.5*IQR\n    Upper: Q3 + 1.5*IQR\n    \u0027\u0027\u0027\n    quartile1 \u003d list(df[\u0027slope\u0027].quantile([0.25,0.75]))[0]\n    quartile3 \u003d list(df[\u0027slope\u0027].quantile([0.25,0.75]))[1]\n    iqr \u003d quartile3 - quartile1\n\n    lower_bound \u003d quartile1 - (threshold*iqr)\n    upper_bound \u003d quartile3 + (threshold*iqr)\n\n    lower_anomalies \u003d df[df[\u0027slope\u0027] \u003c lower_bound]\n    upper_anomalies \u003d df[df[\u0027slope\u0027] \u003e upper_bound]\n\n    def outlier_labeler(data,thresh):\n        df_copy \u003d df\n        quartile1 \u003d list(df_copy[\u0027slope\u0027].quantile([0.25,0.75]))[0]\n        quartile3 \u003d list(df_copy[\u0027slope\u0027].quantile([0.25,0.75]))[1]\n        iqr \u003d quartile3 - quartile1\n\n        lower_bound \u003d quartile1 - (threshold*iqr)\n        upper_bound \u003d quartile3 + (threshold*iqr)\n\n        lower_anomalies \u003d df_copy[df_copy[\u0027slope\u0027] \u003c lower_bound]\n        upper_anomalies \u003d df_copy[df_copy[\u0027slope\u0027] \u003e upper_bound]\n    \n        output \u003d list()\n    \n        for x in range(0,len(df_copy)):\n            if (df_copy.iloc[x,-2] \u003e upper_bound) | (df_copy.iloc[x,-2] \u003c lower_bound):\n                output.append(1)\n            else:\n                output.append(0)\n        return(output)\n    \n    df[\u0027Box Plot Outlier\u0027] \u003d outlier_labeler(df,threshold)\n    \n    \u0027\u0027\u0027\n    Separate anomalies and normal points\n    \u0027\u0027\u0027\n    boxplot_anomalies \u003d df[df[\u0027Box Plot Outlier\u0027]\u003d\u003d1]\n\n    normal_data \u003d df[~df[\u0027Record\u0027].isin(list(boxplot_anomalies[\u0027Record\u0027]))]\n\n    \u0027\u0027\u0027\n    Plot voltages\n    \u0027\u0027\u0027\n    boxplot_anomalies[\u0027timestamp\u0027] \u003d [int(str(x)[0:-3]) for x in list(boxplot_anomalies[\u0027timestamp\u0027])]\n    boxplot_anomalies[\u0027datetime\u0027] \u003d [time.strftime(\u0027%Y-%m-%d %H:%M:%S\u0027, time.localtime(y)) for y in list(boxplot_anomalies[\u0027timestamp\u0027])]\n    boxplot_anomalies[\u0027date\u0027] \u003d [x.split(\" \")[0] for x in list(boxplot_anomalies[\u0027datetime\u0027])]\n    boxplot_anomalies[\u0027time\u0027] \u003d [x.split(\" \")[1] for x in list(boxplot_anomalies[\u0027datetime\u0027])]\n\n    normal_data[\u0027timestamp\u0027] \u003d [int(str(x)[0:-3]) for x in list(normal_data[\u0027timestamp\u0027])]\n    normal_data[\u0027datetime\u0027] \u003d [time.strftime(\u0027%Y-%m-%d %H:%M:%S\u0027, time.localtime(y)) for y in list(normal_data[\u0027timestamp\u0027])]\n    normal_data[\u0027date\u0027] \u003d [x.split(\" \")[0] for x in list(normal_data[\u0027datetime\u0027])]\n    normal_data[\u0027time\u0027] \u003d [x.split(\" \")[1] for x in list(normal_data[\u0027datetime\u0027])]\n\n    def plot(plot_dic, height\u003d1000, width\u003d1000, **kwargs):\n        kwargs[\u0027output_type\u0027] \u003d \u0027div\u0027\n        plot_str \u003d plotly.offline.plot(plot_dic, **kwargs)\n        print(\u0027%%angular \u003cdiv style\u003d\"height: %ipx; width: %spx\"\u003e %s \u003c/div\u003e\u0027 % (height, width, plot_str))\n\n    trace1 \u003d go.Scatter(\n        x \u003d normal_data[\u0027datetime\u0027],\n        y \u003d normal_data[\u0027value\u0027],\n        mode \u003d \u0027markers\u0027,\n        name \u003d \u0027Normal Points\u0027\n    )\n\n    trace2 \u003d go.Scatter(\n        x \u003d boxplot_anomalies[\u0027datetime\u0027],\n        y \u003d boxplot_anomalies[\u0027value\u0027],\n        mode \u003d \u0027markers\u0027,\n        name \u003d \u0027Anomalies\u0027\n    )\n\n    layout \u003d dict(\n      title \u003d \u0027Timestamp vs Voltage\u0027,\n      xaxis \u003d dict(title\u003d\u0027Timestamp\u0027),\n      yaxis \u003d dict(title\u003d\u0027Voltage\u0027),\n      showlegend \u003d True,\n      height \u003d 800\n    )\n    data1 \u003d [trace1, trace2]\n    fig1 \u003d dict( data\u003ddata1, layout\u003dlayout )\n    plot(fig1,  show_link\u003dTrue)\n\nexcept:\n    print(\"Please check input and try again\")",
-      "user": "rohinmahesh1028@gmail.com",
-      "dateUpdated": "Sep 30, 2020 2:36:11 PM",
-      "config": {
-        "colWidth": 12.0,
-        "graph": {
-          "mode": "table",
-          "height": 300.0,
-          "optionOpen": false,
-          "keys": [],
-          "values": [],
-          "groups": [],
-          "scatter": {}
-        },
-        "enabled": true,
-        "editorMode": "ace/mode/python"
-      },
-      "settings": {
-        "params": {
-          "outlier_level": "strict",
-          "bucket_name": "qubole-innovation-dev",
-          "file_name": "battery-prognosis/carBatteryVoltage_sample_8_18.csv"
-        },
-        "forms": {
-          "outlier_level": {
-            "name": "outlier_level",
-            "displayName": "outlier_level",
-            "type": "input",
-            "defaultValue": "",
-            "hidden": false
-          },
-          "bucket_name": {
-            "name": "bucket_name",
-            "displayName": "bucket_name",
-            "type": "input",
-            "defaultValue": "",
-            "hidden": false
-          },
-          "file_name": {
-            "name": "file_name",
-            "displayName": "file_name",
-            "type": "input",
-            "defaultValue": "",
-            "hidden": false
-          }
-        }
-      },
-      "paragraphProgress": {
-        "jobs": [],
-        "numCompletedTasks": 0,
-        "numTasks": 0,
-        "truncated": false
-      },
-      "version": "v1",
-      "jobName": "paragraph_1601474359785_2053034616",
-      "id": "20200930-135919_934439742_q_NFXV8WWJ5T1601379489",
-      "dateCreated": "Sep 30, 2020 1:59:19 PM",
-      "dateSubmitted": "Sep 30, 2020 2:36:12 PM",
-      "dateStarted": "Sep 30, 2020 2:36:12 PM",
-      "dateFinished": "Sep 30, 2020 2:36:16 PM",
-      "status": "FINISHED",
-      "errorMessage": "",
-      "progressUpdateIntervalMs": 1000
-    },
-    {
-      "text": "s3 \u003d boto3.client(\u0027s3\u0027)\nobj \u003d s3.get_object(Bucket\u003d \"qubole-innovation-dev\", Key\u003d \"battery-prognosis/carBatteryVoltage_sample_8_18.csv\") \n\ndf \u003d pd.read_csv(obj[\u0027Body\u0027])\n",
-      "user": "rohinmahesh1028@gmail.com",
-      "dateUpdated": "Sep 30, 2020 2:11:18 PM",
-      "config": {
-        "colWidth": 12.0,
-        "graph": {
-          "mode": "table",
-          "height": 300.0,
-          "optionOpen": false,
-          "keys": [],
-          "values": [],
-          "groups": [],
-          "scatter": {}
-        },
-        "enabled": true,
-        "editorMode": "ace/mode/python"
-      },
-      "settings": {
-        "params": {},
-        "forms": {}
-      },
-      "version": "v1",
-      "jobName": "paragraph_1601474508287_-1886814903",
-      "id": "20200930-140148_1344012341_q_NFXV8WWJ5T1601379489",
-      "dateCreated": "Sep 30, 2020 2:01:48 PM",
-      "dateSubmitted": "Sep 30, 2020 2:11:18 PM",
-      "dateStarted": "Sep 30, 2020 2:11:18 PM",
-      "dateFinished": "Sep 30, 2020 2:11:18 PM",
-      "status": "FINISHED",
-      "errorMessage": "",
-      "progressUpdateIntervalMs": 1000
-    },
-    {
-      "text": "",
-      "config": {},
-      "settings": {
-        "params": {},
-        "forms": {}
-      },
-      "version": "v0",
-      "jobName": "paragraph_1601474979205_-444317944",
-      "id": "20200930-140939_411745155_q_NFXV8WWJ5T1601379489",
-      "dateCreated": "Sep 30, 2020 2:09:39 PM",
-      "status": "READY",
       "errorMessage": "",
       "progressUpdateIntervalMs": 1000
     }
